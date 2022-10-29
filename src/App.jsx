@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Logo from './assets/images/logo.svg'
 import Icon from './assets/images/icon-menu.svg'
 import IconClose from './assets/images/icon-menu-close.svg'
@@ -9,9 +9,15 @@ import Gaming from './assets/images/image-gaming-growth.jpg'
 
 
 const App = () => {
+   const [navOpen, setNavOpen] = useState(false)
+
+   const toggleNaVBar = () => {
+    setNavOpen(!navOpen)
+   }
+
   return (
     <div>
-      <nav className='flex justify-between m-16 '>
+      <nav className='flex justify-around md:justify-between m-16 '>
         <div>
           <img src={Logo} className='max-w-xl' />
           </div>
@@ -27,11 +33,21 @@ const App = () => {
         </div>
         {/* mobile  */}
         <div>
-          <img src={Icon} alt="/" className='flex md:hidden cursor-pointer' />
+          <img src={Icon} alt="/" onClick={toggleNaVBar} className='flex md:hidden cursor-pointer ml-48 ' />
         </div>
       </nav>
       <div className="flex flex-col md:flex-row">
     <div>
+      {navOpen ? (
+        
+      <div className='bg-white fixed w-72 h-screen z-10 top-0 right-0'>
+
+      </div>
+      ) : " "}
+      {/* sidebar  */}
+      <div className={navOpen? 'fixed top-0 right-0 w-[300px] h-screen bg-white duration-200' : 'fixed top-0 right-[-100%] w-[300px] h-screen bg-white z-10 duration-300'}>
+        <img src={IconClose} onClick={()=>!setNavOpen(!navOpen)} alt="close" />
+      </div>
 
       <div><img src={Web3} className="ml-16 w-full pr-5 md:w-[1010px] h-[320px]" alt="" /></div>
       <div className="flex flex-col md:flex-row justify-around">
