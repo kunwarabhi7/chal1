@@ -40,20 +40,20 @@ const App = () => {
     <div>
       {navOpen ? (
         
-      <div className='flex md:hidden bg-white fixed w-72 h-screen z-10 top-0 right-0'>
+      <div className=' md:hidden bg-white fixed w-72 h-screen z-10 top-0 right-0'>
 
         </div>
       ) : " "}
       {/* sidebar  */}
-      <div className={navOpen? 'fixed md:hidden top-0 right-0 w-[250px] h-screen bg-white duration-200' : 'fixed top-0 right-[-100%] w-[300px] h-screen bg-white z-10 duration-300'}>
+      <div className={navOpen? 'fixed top-0 right-0 w-[300px] h-screen bg-white z-10 duration-200' : 'fixed top-0 right-[-100%] w-[300px] h-screen bg-white z-10 duration-300'}>
         <img src={IconClose} onClick={()=>!setNavOpen(!navOpen)}   className='absolute right-4 top-4 cursor-pointer'
   alt="close" />
-        <ul>
-          <li>Home</li>
-          <li>New</li>
-          <li></li>
-          <li></li>
-          <li></li>
+        <ul className='pt-40'>
+          <li className='text-3xl text-bold p-4'>Home</li>
+          <li className='text-3xl text-bold p-4'>New</li>
+          <li className='text-3xl text-bold p-4'>Popular</li>
+          <li className='text-3xl text-bold p-4'>Trending</li>
+          <li className='text-3xl text-bold p-4'>Category</li>
         </ul>
       </div>
 
@@ -68,7 +68,7 @@ const App = () => {
         </div>
       
     </div>
-    <div className="bg-black w-80  md:w-96 h-[540px] ml-14"><h1 className="text-5xl p-8 text-yellow-500">New</h1>
+    <div className="bg-black w-72   md:w-96 h-[740px] ml-14"><h1 className="text-5xl p-8 text-yellow-500">New</h1>
       <h2 className="text-white ml-6 text-2xl hover:text-yellow-500 cursor-pointer">Hydrogen VS Electric Cars</h2>
       <p className="text-gray-300 my-6 ml-6">Will hydrogen-fueled cars ever catch up <br />to EVs?</p>
       <hr className="mx-6 my-4" />
